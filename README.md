@@ -21,9 +21,11 @@ Everything else is Artix's, unchanged. `/etc/artix-release` and the
 
 ## Versioning
 
-`pkgver` follows Artix's; `pkgrel` is Artix's plus `.1` (e.g. `2025.10.12-1.1`).
+`pkgver` follows Artix's; `pkgrel` is Artix's plus `.N` (e.g. `2025.10.12-1.2`).
 That makes pacman treat ours as newer than Artix's same release, so existing
-systems switch over on their next `pacman -Syu`.
+systems switch over on their next `pacman -Syu`. Bump `.N` for each MorvaneOS
+change on the same Artix release (`1.1`, `1.2`, …); reset it to `.1` when you
+merge a new Artix release.
 
 ## Merging an Artix update
 

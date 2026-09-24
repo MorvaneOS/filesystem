@@ -9,5 +9,13 @@
   },
   "display": {
     "color": { "keys": "38;2;244;166;198", "title": "38;2;185;163;230" }
-  }
+  },
+  // A config file replaces fastfetch's built-in module list, so it's repeated
+  // here: fastfetch's own default (fastfetch --print-structure)
+  "modules": [
+    "title", "separator", "os", "host", "kernel", "uptime", "packages", "shell",
+    "display", "de", "wm", "wmtheme", "theme", "icons", "font", "cursor",
+    "terminal", "terminalfont", "cpu", "gpu", "memory", "swap", "disk",
+    "localip", "battery", "poweradapter", "locale", "break", "colors"
+  ]
 }

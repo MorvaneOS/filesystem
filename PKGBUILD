@@ -10,7 +10,7 @@
 
 pkgname=filesystem
 pkgver=2025.10.12
-pkgrel=1.1  # .1 on top of Artix's pkgrel, so pacman replaces Artix's package
+pkgrel=1.2  # Artix's pkgrel + .N for our own releases (see README)
 pkgdesc='Base MorvaneOS Linux files (based on Artix Linux)'
 arch=('any')
 license=('0BSD')
@@ -84,7 +84,7 @@ sha256sums=('7056c04df17a4e0f0bac9f787f347c9cd892cee6323d1c89528090afd0b934a3'
             '03d375950a457dc8516f31e6f6064fd7bed59edef8e66ec0a5b8f15b55fd2974'
             'e7c4bab4096480276784a05d5a4ec9d7097d4e4e79ccba28dfc3d25c850c3be4'
             'd2f948b8d81903c41d82fd3d9e295b295fffc701faac6d760a7761b803af2656'
-            '7c23d561e087696d731b83292e10668231c263718c9cb7c0f2e3fc4696ef2213'
+            '134b8a90923a6a400623a728c5688bd75f8da7ae8f5232d780fe1f9201943fed'
             '8dbd6f85769616de423e953aba4c46da5e2b3286f736615b83307caee55cc9c4'
             'e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'e54626e74ed8fee4173b62a545ab1c3a3a069e4217a0ee8fc398d9933e9c1696'
