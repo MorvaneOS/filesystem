@@ -1,0 +1,13 @@
+// MorvaneOS default fastfetch look: the Twilight Peaks logo in pastel pink and
+// lavender. Your own ~/.config/fastfetch/config.jsonc takes priority over this.
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "/usr/share/morvane/fastfetch/logo.txt",
+    "color": { "1": "38;2;244;166;198", "2": "38;2;185;163;230" }
+  },
+  "display": {
+    "color": { "keys": "38;2;244;166;198", "title": "38;2;185;163;230" }
+  }
+}

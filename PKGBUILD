@@ -1,14 +1,20 @@
+# Maintainer: Clove Twilight <admin@doughmination.win>
+#
+# MorvaneOS fork of Artix's filesystem package: MorvaneOS os-release, logos and
+# fastfetch look. Everything else follows Artix; see README.md for merging updates.
+#
+# Artix/Arch maintainers:
 # Maintainer: David Runge <dvzrv@archlinux.org>
 # Maintainer: Sébastien Luttringer
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
 pkgver=2025.10.12
-pkgrel=1
-pkgdesc='Base Artix Linux files'
+pkgrel=1.1  # .1 on top of Artix's pkgrel, so pacman replaces Artix's package
+pkgdesc='Base MorvaneOS Linux files (based on Artix Linux)'
 arch=('any')
 license=('0BSD')
-url='https://artixlinux.org'
+url='https://github.com/MorvaneOS/filesystem'
 depends=('iana-etc')
 backup=(
   'etc/crypttab'
@@ -28,6 +34,7 @@ backup=(
   'etc/shells'
   'etc/subgid'
   'etc/subuid'
+  'etc/xdg/fastfetch/config.jsonc'
 )
 source=(
   'LICENSE'
@@ -36,6 +43,13 @@ source=(
   'artixlinux-logo.svg'
   'artixlinux-logo-text.svg'
   'artixlinux-logo-text-dark.svg'
+  'morvane-release'
+  'morvane-logo.png'
+  'morvane-logo.svg'
+  'morvane-logo-text.svg'
+  'morvane-logo-text-dark.svg'
+  'fastfetch.jsonc'
+  'fastfetch-logo.txt'
   'crypttab'
   'fstab'
   'group'
@@ -65,6 +79,13 @@ sha256sums=('7056c04df17a4e0f0bac9f787f347c9cd892cee6323d1c89528090afd0b934a3'
             '901f30173e8044f489b6224dde41fb6d15244968abad17c37763b5c063834a4e'
             '4dce805a82da31f3fd7f58356b8661dd4f8eba00a2308b4d8d1a2c9b4b55a6bd'
             '4dce805a82da31f3fd7f58356b8661dd4f8eba00a2308b4d8d1a2c9b4b55a6bd'
+            'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+            '50d8bf90354db260d8d4e4f467dbdc401e5a718be6efab02ac9afd2d9c0e73ed'
+            '03d375950a457dc8516f31e6f6064fd7bed59edef8e66ec0a5b8f15b55fd2974'
+            'e7c4bab4096480276784a05d5a4ec9d7097d4e4e79ccba28dfc3d25c850c3be4'
+            'd2f948b8d81903c41d82fd3d9e295b295fffc701faac6d760a7761b803af2656'
+            '7c23d561e087696d731b83292e10668231c263718c9cb7c0f2e3fc4696ef2213'
+            '8dbd6f85769616de423e953aba4c46da5e2b3286f736615b83307caee55cc9c4'
             'e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'e54626e74ed8fee4173b62a545ab1c3a3a069e4217a0ee8fc398d9933e9c1696'
             '244f0718ee2a9d6862ae59d6c18c1dd1568651eada91a704574fa527fbac2b3a'
@@ -75,7 +96,7 @@ sha256sums=('7056c04df17a4e0f0bac9f787f347c9cd892cee6323d1c89528090afd0b934a3'
             '785c6c3614a27ae6115a27c1ca55bbf333654780997c4ba7e181172b021d1bf3'
             '153d848ed51f2774e5a1578ea08e0c8586ecc63f7562697e035b84247edb2f82'
             '62855224620a1e6dcfb2373460387bf0b7870ebe0595a61bbbc74919710d7641'
-            '4dd21fdcb71ca78b3ebe3adf06bbc9052dff90c8686f8d7f1f898f6ba49b5605'
+            '60698025d2ff5e2daad9fcbc9af29a56e7a72a75df50a772b9f264558f2d9f63'
             '13e2783884783ef46b8345fbcdf7880f0414c0a9c42e2b2fc6a2b048cbc2d86e'
             '80dcbd14a5d96521fcbbe662fc23f5a79c9a8964123c79db3c8e04ec16e7cf8b'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
@@ -84,7 +105,7 @@ sha256sums=('7056c04df17a4e0f0bac9f787f347c9cd892cee6323d1c89528090afd0b934a3'
             'ec289c03aa0d150e90e8287f001c8e6552ab9dd54f450bdb5c2d2254e477965b'
             '923c7e4dba489af0bd3a61b99470768287804841a791c975dd37b8560615f391'
             '2400dbab070d9f7d14d9fae2fc89a39af613191dff52ea571a8a226f219ac247'
-            'd562ee1b146104fc699084c3d6ba654ed0ab42dee41f662b30b1ba98a67783d6'
+            '093616b82e8c898007330f1fe7a4d098a2d33daf03703c7d2b1f1bdf54057e73'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')
 
@@ -172,6 +193,9 @@ package() {
   # associative array of target files, their source file, file mode, user and group ownership
   files=(
     ["etc/artix-release"]="artix-release:644:0:0"
+    ["etc/morvane-release"]="morvane-release:644:0:0"
+    ["etc/xdg/fastfetch/config.jsonc"]="fastfetch.jsonc:644:0:0"
+    ["usr/share/morvane/fastfetch/logo.txt"]="fastfetch-logo.txt:644:0:0"
     ["etc/crypttab"]="crypttab:600:0:0"
     ["etc/fstab"]="fstab:644:0:0"
     ["etc/group"]="group:644:0:0"
@@ -195,6 +219,7 @@ package() {
     ["usr/lib/sysusers.d/artix.conf"]="sysusers:644:0:0"
     ["usr/lib/tmpfiles.d/artix.conf"]="tmpfiles:644:0:0"
     ["usr/share/factory/etc/artix-release"]="artix-release:644:0:0"
+    ["usr/share/factory/etc/morvane-release"]="morvane-release:644:0:0"
     ["usr/share/factory/etc/crypttab"]="crypttab:600:0:0"
     ["usr/share/factory/etc/fstab"]="fstab:644:0:0"
     ["usr/share/factory/etc/group"]="group:644:0:0"
@@ -217,6 +242,10 @@ package() {
     ["usr/share/pixmaps/artixlinux-logo.svg"]="artixlinux-logo.svg:644:0:0"
     ["usr/share/pixmaps/artixlinux-logo-text.svg"]="artixlinux-logo-text.svg:644:0:0"
     ["usr/share/pixmaps/artixlinux-logo-text-dark.svg"]="artixlinux-logo-text-dark.svg:644:0:0"
+    ["usr/share/pixmaps/morvane-logo.png"]="morvane-logo.png:644:0:0"
+    ["usr/share/pixmaps/morvane-logo.svg"]="morvane-logo.svg:644:0:0"
+    ["usr/share/pixmaps/morvane-logo-text.svg"]="morvane-logo-text.svg:644:0:0"
+    ["usr/share/pixmaps/morvane-logo-text-dark.svg"]="morvane-logo-text-dark.svg:644:0:0"
   )
 
   cd "$pkgdir"

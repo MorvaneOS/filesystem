@@ -1,6 +1,7 @@
 # copy from factory when missing
 
 C /etc/artix-release
+C /etc/morvane-release
 C /etc/crypttab
 C /etc/fstab
 C /etc/group
