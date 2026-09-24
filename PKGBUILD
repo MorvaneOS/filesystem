@@ -1,4 +1,4 @@
-# Maintainer: Clove Twilight <admin@doughmination.win>
+# Maintainer: Clove Twilight <clove@doughmination.gay>
 #
 # MorvaneOS fork of Artix's filesystem package: MorvaneOS os-release, logos and
 # fastfetch look. Everything else follows Artix; see README.md for merging updates.
