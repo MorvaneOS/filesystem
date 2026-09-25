@@ -52,8 +52,8 @@ Merge only commits that reached `[system]`; `[system-gremlins]` is Artix's testi
 ## Updating the logos
 
 The logo files are copies from [MorvaneOS/assets](https://github.com/MorvaneOS/assets):
-`app-icon-dark.svg` → `morvane-logo.svg`, `app-icon-dark-256.png` →
-`morvane-logo.png`, `lockup-horizontal-{light,dark}.svg` →
+`svg/app-icon/dark.svg` → `morvane-logo.svg`, `png/app-icon/dark/256.png` →
+`morvane-logo.png`, `svg/lockup-horizontal/{light,dark}.svg` →
 `morvane-logo-text{,-dark}.svg`, `ascii/morvane.txt` → `fastfetch-logo.txt`.
 Copy them over again, bump `pkgrel`, and refresh the checksums.
 
